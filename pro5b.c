@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+void towers(int n, char src, char dest, char aux)
+	{
+		if(n==1)
+		{
+			printf("MOVE DISK 1 FROM PEG %c TO PEG %c\n",src,dest);
+			return;
+		}
+		towers(n-1,src,aux,dest);
+		printf("MOVE DISK %d FROM PEG %c TO PEG %c\n",n,src,dest);
+		towers(n-1,aux,dest,src);
+	}
+
+	int main()
+	{
+		int n;
+		printf("ENTER THE NUMBER OF DISKS\n");
+		scanf("%d",&n);
+		printf("MOVES MADE\n");
+		towers(n,'A','C','B');
+		return 0;
+	}
